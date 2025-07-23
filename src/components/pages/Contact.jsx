@@ -19,8 +19,8 @@ const Contact = () => {
             <h2 className="text-3xl font-bold text-center mb-4">
               Send Me a Message
             </h2>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form className="space-y-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                   <label className="label">
                     <span className="label-text">Name</span>

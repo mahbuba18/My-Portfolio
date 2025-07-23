@@ -51,6 +51,7 @@ const Navbar = () => {
       </li>
     </>
   );
+  // <li ><Link to="home" smooth={true} duration={500} spy={true} hashSpy={true} isDynamic={true} activeClass="active-link">Home</Link></li>
 
   return (
     <div

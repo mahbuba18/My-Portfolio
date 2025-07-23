@@ -7,7 +7,7 @@ const Footer = () => {
     style={{ fontFamily: '"Berkshire Swash", serif', fontWeight: 400 }}
     className="text-xl font-bold text-black"
   >
-    Thanks for visiting my portfolio!!
+    Thank you for visiting my portfolio!!
   </p>
   <aside className="m-0 p-0">
     <p className="text-sm m-0">

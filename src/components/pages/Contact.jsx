@@ -6,6 +6,8 @@ import { ImWhatsapp } from "react-icons/im";
 import { SiGmail } from "react-icons/si";
 import { SiMinutemailer } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
+import Lottie from "lottie-react";
+import lottieConnect from "../../assets/Lotti/Email.json"
 
 const Contact = () => {
   return (
@@ -82,22 +84,18 @@ const Contact = () => {
         </div>
 
         {/* Follow Us Section */}
-        <div className="text-center lg:text-left w-full lg:pr-10 mt-10 lg:mt-0">
-          <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-green-600 to-sky-500 text-transparent bg-clip-text mb-6 gap-3">
+        <div className="text-center lg:text-left w-full lg:pr-10 mt-5 lg:mt-0">
+          <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-green-600 to-sky-500 text-transparent bg-clip-text mb-2 ">
             <MdCastConnected className="text-5xl text-white" />
             Let's Connect
           </h1>
-
-          <p className="mb-6">
-            We’d love to hear from you! Whether you have a question, feedback,
-            or just want to connect.
-          </p>
+          <Lottie className="h-[350px]" animationData={lottieConnect}></Lottie>
           <div className="flex justify-center gap-4 text-3xl ">
             <a
-              href="https://facebook.com/yourprofile"
+              href="https://www.facebook.com/mahbubaislam.priya"
               target="_blank"
               rel="noopener noreferrer"
-              className=" hover:text-blue-600"
+              className=" hover:text-blue-600 bg-transparent bg-clip-text"
             >
               <FaSquareFacebook />
             </a>
@@ -126,7 +124,7 @@ const Contact = () => {
               <SiMinutemailer />
             </a>
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/mahaboba-islam-priya-67789a1ab/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-500"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import lottiDataTeam from "../assets/Lotti/Live chatbot.json";
 import Lottie from "lottie-react";
 import { TbLockSquareRounded } from "react-icons/tb";
@@ -6,16 +6,61 @@ import { AiFillPicture } from "react-icons/ai";
 import { SiVorondesign } from "react-icons/si";
 import { GiSkills } from "react-icons/gi";
 
+const technicalSkills = [
+  { name: "React", level: 90 },
+  { name: "JavaScript", level: 85 },
+  { name: "Node.js", level: 80 },
+  { name: "Python", level: 75 },
+  { name: "MongoDB", level: 70 },
+  { name: "Git", level: 95 },
+];
+
+const education = [
+  {
+    degree: "BSc in Computer Science",
+    institution: "Tech University",
+    year: "2020 - 2024",
+    location: "New York, NY",
+  },
+  {
+    degree: "Web Dev Bootcamp",
+    institution: "Code Academy",
+    year: "2023",
+    location: "Online",
+  },
+];
+const experience = [
+  {
+    title: "Full Stack Developer",
+    company: "Tech Solutions",
+    year: "2024 - Present",
+    location: "San Francisco, CA",
+    summary: "Built web apps using React, Node.js and MongoDB.",
+  },
+  {
+    title: "Frontend Developer",
+    company: "Digital Agency",
+    year: "2023 - 2024",
+    location: "Remote",
+    summary: "Worked on responsive interfaces using React and CSS.",
+  },
+];
+
 const Skills = () => {
+  const [open, setOpen] = useState(null);
+
+  const toggleSection = (name) => {
+    setOpen(open === name ? null : name);
+  };
   return (
     <div
       id="about"
       className=" pb-20 pt-20 bg-base-200 min-h-screen shadow-lg lg:px-30 md:px-15 sm:px-10"
     >
       <div className="pb-4">
-        <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-green-600 to-sky-500 text-transparent bg-clip-text mb-2 gap-2 ">
+        <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-sky-500 to-green-400 text-transparent bg-clip-text mb-2 lg:gap-2 ">
           <GiSkills className="text-5xl text-white" />
-          Skills
+          Skills and Experience
         </h1>
       </div>
 
@@ -27,46 +72,84 @@ const Skills = () => {
               animationData={lottiDataTeam}
             />
           </div>
-          <div className="lg:w-1/2  text-justify">
-            <ul className="mt-4 space-y-2">
-              <li className="flex items-start lg:p-4">
-                <TbLockSquareRounded className="justify-center h-18 w-18 text-gray-600 mt-1 mr-2 hover:text-sky-500" />
-                <div>
-                  <p className="font-bold lg:text-xl hover:text-sky-500">
-                    YOUR 24/7 MARKETING TOOL
-                  </p>
-                  <p>
-                    Whether you're at work or not, your internet site is
-                    continually operating to your business.
-                  </p>
+         <div className="w-full lg:w-[700px] mx-auto lg:pt-20 ">
+
+            {/* Technical Skills */}
+            <div className="border rounded mb-4">
+              <button
+                onClick={() => toggleSection("skills")}
+                className="w-full text-left p-4 font-semibold bg-gray-100"
+              >
+                Technical Skills
+              </button>
+              {open === "skills" && (
+                <div className="p-4 space-y-3">
+                  {technicalSkills.map((skill, i) => (
+                    <div key={i}>
+                      <div className="flex justify-between text-sm">
+                        <span>{skill.name}</span>
+                        <span>{skill.level}%</span>
+                      </div>
+                      <div className="w-full h-2 bg-gray-200 rounded">
+                        <div
+                          className="h-2 bg-blue-500 rounded"
+                          style={{ width: `${skill.level}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </li>
-              <li className="flex items-start lg:p-4">
-                <AiFillPicture className="justify-center h-18 w-18 text-gray-600 mt-1 mr-2 hover:text-sky-500" />
-                <div>
-                  <p className="font-bold lg:text-xl hover:text-sky-500">
-                    BRINGING YOUR WEBSITE TO LIFE
-                  </p>
-                  <p>
-                    Once the course for your website has been decided, we'll
-                    start coding to convey it to life.
-                  </p>
+              )}
+            </div>
+
+            {/* Education */}
+            <div className="border rounded mb-4">
+              <button
+                onClick={() => toggleSection("education")}
+                className="w-full text-left p-4 font-semibold bg-gray-100"
+              >
+                Education
+              </button>
+              {open === "education" && (
+                <div className="p-4 space-y-3 text-sm">
+                  {education.map((edu, i) => (
+                    <div key={i}>
+                      <p className="font-semibold">{edu.degree}</p>
+                      <p>{edu.institution}</p>
+                      <p className="text-gray-500">
+                        {edu.year} | {edu.location}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              </li>
-              <li className="flex items-start lg:p-4">
-                <SiVorondesign className="justify-center h-18 w-18 text-gray-600 mt-1 mr-2 hover:text-sky-500" />
-                <div>
-                  <p className="font-bold lg:text-xl hover:text-sky-500">
-                    WIREFRAMING AND WEB DESIGN
-                  </p>
-                  <p>
-                    After the Discovery Session, we begin to drag our thoughts
-                    for your internet site together.
-                  </p>
+              )}
+            </div>
+
+            {/* Experience */}
+            <div className="border rounded mb-4">
+              <button
+                onClick={() => toggleSection("experience")}
+                className="w-full text-left p-4 font-semibold bg-gray-100"
+              >
+                Work Experience
+              </button>
+              {open === "experience" && (
+                <div className="p-4 space-y-3 text-sm">
+                  {experience.map((job, i) => (
+                    <div key={i}>
+                      <p className="font-semibold">{job.title}</p>
+                      <p>{job.company}</p>
+                      <p className="text-gray-500">
+                        {job.year} | {job.location}
+                      </p>
+                      <p>{job.summary}</p>
+                    </div>
+                  ))}
                 </div>
-              </li>
-            </ul>
+              )}
+            </div>
           </div>
+         
         </div>
       </div>
     </div>

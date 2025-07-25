@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import lottiDataTeam from "../assets/Lotti/Live chatbot.json";
+import lottiDataTeam from "../../assets/Lotti/Live chatbot.json";
 import Lottie from "lottie-react";
 import { TbLockSquareRounded } from "react-icons/tb";
 import { AiFillPicture } from "react-icons/ai";
 import { SiVorondesign } from "react-icons/si";
 import { GiSkills } from "react-icons/gi";
+import { IoIosArrowDropdownCircle } from "react-icons/io"
+import { IoIosArrowDown } from "react-icons/io";
 
 const technicalSkills = [
   { name: "React", level: 90 },
@@ -17,32 +19,33 @@ const technicalSkills = [
 
 const education = [
   {
-    degree: "BSc in Computer Science",
-    institution: "Tech University",
+    degree: "BSc in Computer Science and Engineering(CSE)",
+    institution: "Jashore University of Science and Technology(JUST)",
     year: "2020 - 2024",
-    location: "New York, NY",
+    cgpa: "3.29 out of 4.00",
+    location: "Jashore, Bangladesh",
   },
   {
-    degree: "Web Dev Bootcamp",
-    institution: "Code Academy",
-    year: "2023",
+    degree: "Complete Web Development Course With Jhankar Mahbub",
+    institution: "Progamming Hero",
+    year: "01-07-2023 to 20-01-2024",
     location: "Online",
   },
 ];
 const experience = [
   {
-    title: "Full Stack Developer",
-    company: "Tech Solutions",
-    year: "2024 - Present",
-    location: "San Francisco, CA",
-    summary: "Built web apps using React, Node.js and MongoDB.",
+    title: "Trainee Python Developer",
+    company: "EON Systems",
+    year: "May 2025 - July 2025",
+    location: "Mohammadpur, Dhaka-1207",
+    summary: "Built web apps using Web2Py,MySQL and Python",
   },
   {
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    year: "2023 - 2024",
+    title: "Junior Software Engineer Intern",
+    company: "AmarEvent.com",
+    year: "05-01-2025 to 05-03-2025",
     location: "Remote",
-    summary: "Worked on responsive interfaces using React and CSS.",
+    summary: "Worked on responsive interfaces using React and Tailwind CSS. Learned core element of software applications.",
   },
 ];
 
@@ -76,11 +79,12 @@ const Skills = () => {
 
             {/* Technical Skills */}
             <div className="border rounded mb-4">
+              
               <button
                 onClick={() => toggleSection("skills")}
-                className="w-full text-left p-4 font-semibold bg-gray-100"
+                className="w-full flex gap-2 justify-between text-left p-4 font-semibold bg-gray-100 text-xl"
               >
-                Technical Skills
+                Technical Skills<IoIosArrowDown />
               </button>
               {open === "skills" && (
                 <div className="p-4 space-y-3">
@@ -106,9 +110,9 @@ const Skills = () => {
             <div className="border rounded mb-4">
               <button
                 onClick={() => toggleSection("education")}
-                className="w-full text-left p-4 font-semibold bg-gray-100"
+                className="w-full flex gap-2 justify-between text-left p-4 font-semibold bg-gray-100 text-xl"
               >
-                Education
+                Education<IoIosArrowDown />
               </button>
               {open === "education" && (
                 <div className="p-4 space-y-3 text-sm">
@@ -116,6 +120,7 @@ const Skills = () => {
                     <div key={i}>
                       <p className="font-semibold">{edu.degree}</p>
                       <p>{edu.institution}</p>
+                      <p>CGPA:{edu.cgpa}</p>
                       <p className="text-gray-500">
                         {edu.year} | {edu.location}
                       </p>
@@ -129,9 +134,9 @@ const Skills = () => {
             <div className="border rounded mb-4">
               <button
                 onClick={() => toggleSection("experience")}
-                className="w-full text-left p-4 font-semibold bg-gray-100"
+                className="w-full flex gap-2 justify-between text-left p-4 font-semibold bg-gray-100 text-xl"
               >
-                Work Experience
+                Work Experience<IoIosArrowDown />
               </button>
               {open === "experience" && (
                 <div className="p-4 space-y-3 text-sm">

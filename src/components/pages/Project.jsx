@@ -28,13 +28,13 @@ const projects = [
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Flower Shop ",
     description:
-      "A collaborative task management application with real-time updates and team collaboration features.",
-    image: "/placeholder.svg?height=200&width=400",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-    githubUrl: "https://github.com/username/task-manager",
-    liveUrl: "https://taskmanager-demo.vercel.app",
+      "A responsive and elegant flower shop website built with HTML and CSS, showcasing fresh blooms with a modern design.",
+    image: "https://i.ibb.co/q3k5pnx1/Screenshot-2025-07-31-203600.png",
+    technologies: ["HTML","CSS"],
+    githubUrl: "https://github.com/mahbuba18/my-flower-shop-repo",
+    liveUrl: "https://mahbuba18.github.io/my-flower-shop-repo/",
     featured: true,
   },
 ];
@@ -42,10 +42,10 @@ const projects = [
 const Project = () => {
   const featuredProjects = projects.filter((project) => project.featured);
   return (
-    <section className="py-16 px-4 bg-base-200 md:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="projects" className="py-6 px-4 bg-base-300 md:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Featured Projects
+           Projects
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Here are some of my recent projects that showcase my skills and

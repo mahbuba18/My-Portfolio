@@ -4,13 +4,15 @@ import Lottie from 'lottie-react';
 import Contact from './Contact';
 import Skills from './Skills';
 import Project from './Project';
+import About from './About';
 
 
 const Home = () => {
     return (
-        <div className='bg-white shadow-lg'>
+        <div id='name' className='bg-white shadow-lg'>
           
            <Bannar></Bannar>
+           <About></About>
            <Skills></Skills>
            <Project></Project>
            <Contact></Contact>

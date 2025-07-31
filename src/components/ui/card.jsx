@@ -3,7 +3,9 @@ import React from "react";
 
 export const Card = ({ children, className = "" }) => {
   return (
-    <div className={`bg-gradient-to-r from-sky-400 via-emerald-400 to-green-500 hover:from-green-500 hover:to-sky-400  rounded-xl border shadow-sm ${className}`}>
+    <div
+      className={`bg-gradient-to-r from-stone-300 to-sky-400 hover:from-green-300 hover:to-stone-300 rounded-xl border shadow-sm ${className}`}
+    >
       {children}
     </div>
   );
@@ -14,11 +16,13 @@ export const CardHeader = ({ children }) => {
 };
 
 export const CardTitle = ({ children, className = "" }) => {
-  return <h3 className={`text-lg font-semibold ${className}`}>{children}</h3>;
+  return <h3 className={`text-lg text-black font-semibold ${className}`}>{children}</h3>;
 };
 
 export const CardDescription = ({ children, className = "" }) => {
-  return <p className={`text-sm text-gray-600 mt-1 ${className}`}>{children}</p>;
+  return (
+    <p className={`text-sm text-gray-600 mt-1 ${className}`}>{children}</p>
+  );
 };
 
 export const CardContent = ({ children }) => {

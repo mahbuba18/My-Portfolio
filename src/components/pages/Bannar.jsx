@@ -134,7 +134,7 @@ const Bannar = () => {
           <a
             href="/public/Mahaboba_Islam_Priya_Resume.pdf"
             download
-            className="btn  text-xl bg-gradient-to-r from-sky-400 via-emerald-400 to-green-500 hover:from-green-500 hover:to-sky-400 hover:scale-105 transition-all duration-300"
+            className="btn  lg:text-xl bg-gradient-to-r from-sky-400 via-emerald-400 to-green-500 hover:from-green-500 hover:to-sky-400 hover:scale-105 transition-all duration-300"
           >
             {" "}
             <FaCloudDownloadAlt />

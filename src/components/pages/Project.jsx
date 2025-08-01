@@ -73,7 +73,7 @@ const Project = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full p-2 h-48 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                 <Button size="sm" variant="secondary" asChild>

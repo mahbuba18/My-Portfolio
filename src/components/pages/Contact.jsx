@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useRef } from "react";
 import { LuMessageCircleMore } from "react-icons/lu";
 import { MdCastConnected } from "react-icons/md";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { ImWhatsapp } from "react-icons/im";
-import { SiGmail } from "react-icons/si";
-import { SiMinutemailer } from "react-icons/si";
+import { SiGmail, SiMinutemailer } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import Lottie from "lottie-react";
-import lottieConnect from "../../assets/Lotti/Email.json"
+import lottieConnect from "../../assets/Lotti/Email.json";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'service_nbipbx1',       
+      'template_oql9prr',      
+      form.current,
+      '8Nm3bYxFEu1HbM6J3'        
+    )
+    .then((result) => {
+      console.log(result.text);
+      alert("✅ Message sent successfully!");
+      e.target.reset();
+    })
+    .catch((error) => {
+      console.log(error.text);
+      alert("❌ Failed to send message. Please try again.");
+    });
+  };
+
   return (
-    <div id="contact" className="hero bg-base-200 min-h-screen py-13">
+    <div id="contact" className="hero bg-base-200 min-h-screen py-20">
       <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl">
         {/* Contact Form */}
         <div className="card bg-base-100 w-full max-w-xl shadow-2xl">
@@ -19,7 +41,7 @@ const Contact = () => {
             <h2 className="text-3xl font-bold text-center mb-4">
               Send Me a Message
             </h2>
-            <form className="space-y-1">
+            <form ref={form} onSubmit={sendEmail} className="space-y-1">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                   <label className="label">
@@ -27,8 +49,10 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
                     className="input input-bordered w-full"
+                    required
                   />
                 </div>
                 <div>
@@ -37,6 +61,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="Your Phone"
                     className="input input-bordered w-full"
                   />
@@ -48,8 +73,10 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   className="input input-bordered w-full"
+                  required
                 />
               </div>
               <div>
@@ -58,6 +85,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="subject"
                   placeholder="Subject"
                   className="input input-bordered w-full"
                 />
@@ -67,9 +95,11 @@ const Contact = () => {
                   <span className="label-text">Message</span>
                 </label>
                 <textarea
+                  name="message"
                   className="textarea textarea-bordered w-full"
                   rows="4"
                   placeholder="Your Message"
+                  required
                 ></textarea>
               </div>
               <button
@@ -85,17 +115,17 @@ const Contact = () => {
 
         {/* Follow Us Section */}
         <div className="text-center lg:text-left w-full lg:pr-10 mt-5 lg:mt-0">
-          <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-green-600 to-sky-500 text-transparent bg-clip-text mb-2 ">
+          <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-green-600 to-sky-500 text-transparent bg-clip-text mb-2">
             <MdCastConnected className="text-5xl text-white" />
             Let's Connect
           </h1>
           <Lottie className="h-[350px]" animationData={lottieConnect}></Lottie>
-          <div className="flex justify-center gap-4 text-3xl ">
+          <div className="flex justify-center gap-4 text-3xl">
             <a
               href="https://www.facebook.com/mahbubaislam.priya"
               target="_blank"
               rel="noopener noreferrer"
-              className=" hover:text-blue-600 bg-transparent bg-clip-text"
+              className="hover:text-blue-600"
             >
               <FaSquareFacebook />
             </a>

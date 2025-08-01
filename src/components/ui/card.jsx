@@ -4,7 +4,7 @@ import React from "react";
 export const Card = ({ children, className = "" }) => {
   return (
     <div
-      className={`bg-gradient-to-r from-stone-300 to-sky-400 hover:from-green-300 hover:to-stone-300 rounded-xl border shadow-sm ${className}`}
+      className={`bg-gradient-to-r from-green-300 to-stone-300 hover:from-sky-300 hover:to-stone-300 rounded-xl border shadow-sm ${className}`}
     >
       {children}
     </div>

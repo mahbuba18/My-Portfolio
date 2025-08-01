@@ -58,7 +58,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className=" pb-20 py-6 bg-base-200 min-h-screen shadow-lg lg:px-30 md:px-15 sm:px-10"
+      className="  py-20 bg-base-200 min-h-screen shadow-lg lg:px-30 md:px-15 sm:px-10"
     >
       <div className="pb-4">
         <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-sky-500 to-green-400 text-transparent bg-clip-text mb-2 lg:gap-2 ">

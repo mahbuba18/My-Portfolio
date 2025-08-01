@@ -17,12 +17,12 @@ import {
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Job Portal Website",
     description:
-      "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-    image: "/placeholder.svg?height=200&width=400",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    githubUrl: "https://github.com/username/ecommerce-platform",
+      "A smart job portal connecting job seekers with tailored opportunities through skill-based matching.",
+    image: "https://i.ibb.co/YVnQDwk/Screenshot-2025-08-01-224117.png",
+    technologies: ["React", "tailwind CSS", "Node.js","Express.js", "PostgreSQL"],
+    githubUrl: "https://github.com/mahbuba18/job-portal-client",
     liveUrl: "https://ecommerce-demo.vercel.app",
     featured: true,
   },
@@ -42,7 +42,7 @@ const projects = [
 const Project = () => {
   const featuredProjects = projects.filter((project) => project.featured);
   return (
-    <section id="projects" className="py-6 px-4 bg-base-300 md:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="projects" className="py-10 px-4 bg-base-300 md:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
            Projects

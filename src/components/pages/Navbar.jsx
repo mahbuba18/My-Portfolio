@@ -33,7 +33,9 @@ const Navbar = () => {
 
   const linkClass = (section) =>
     `transition duration-200 ${
-      activeSection === section ? "text-green-400 font-bold border-b-2 border-green-400" : ""
+      activeSection === section
+        ? "text-green-400 font-bold border-b-2 border-green-400"
+        : ""
     }`;
 
   const links = (
@@ -87,19 +89,6 @@ const Navbar = () => {
           className={linkClass("projects")}
         >
           Projects
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="contact"
-          smooth={true}
-          duration={500}
-          offset={-70}
-          spy={true}
-          onSetActive={() => setActiveSection("contact")}
-          className={linkClass("contact")}
-        >
-          Contact
         </Link>
       </li>
     </>
@@ -156,9 +145,19 @@ const Navbar = () => {
           <span className="text-lg">{theme === "dark" ? "🌙" : "☀️"}</span>
         </label>
 
-        <a className="inline-block p-2 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300">
+        <Link
+          to="contact"
+          smooth={true}
+          duration={500}
+          offset={-70}
+          spy={true}
+          onSetActive={() => setActiveSection("contact")}
+          className={`inline-block p-2 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300 ${linkClass(
+            "contact"
+          )}`}
+        >
           Let's Talk
-        </a>
+        </Link>
       </div>
     </div>
   );

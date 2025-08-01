@@ -7,7 +7,8 @@ import { SiGmail, SiMinutemailer } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import Lottie from "lottie-react";
 import lottieConnect from "../../assets/Lotti/Email.json";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const form = useRef();
@@ -15,21 +16,30 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      'service_nbipbx1',       
-      'template_oql9prr',      
-      form.current,
-      '8Nm3bYxFEu1HbM6J3'        
-    )
-    .then((result) => {
-      console.log(result.text);
-      alert("✅ Message sent successfully!");
-      e.target.reset();
-    })
-    .catch((error) => {
-      console.log(error.text);
-      alert("❌ Failed to send message. Please try again.");
-    });
+    emailjs
+      .sendForm(
+        "service_nbipbx1",
+        "template_oql9prr",
+        form.current,
+        "8Nm3bYxFEu1HbM6J3"
+      )
+      .then((result) => {
+        console.log(result.text);
+        Swal.fire({
+          title: "Successfully Sent Message!",
+          icon: "success",
+          draggable: true,
+        });
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.text);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+      });
   };
 
   return (

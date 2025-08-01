@@ -66,7 +66,7 @@ const Bannar = () => {
           className="max-w-sm rounded-b-full h-[350px] w-[500px] "
         /> */}
         <Lottie className="h-[400px]" animationData={helloLotti}></Lottie>
-        <div>
+        <div className="px-10">
           <h1 className="text-4xl font-bold">
             Hi, I'm{" "}
             <span
@@ -79,16 +79,16 @@ const Bannar = () => {
               Mahaboba Islam Priya
             </span>
           </h1>
-          <p className="text-2xl pt-2 font-medium text-white h-8">
+          <p className="text-2xl pt-2 font-medium  h-8">
             {displayedText}
             <span className="animate-pulse text-green-500">|</span>
           </p>
-          <p className="py-6">
+          <p className="py-6  mx-w-auto">
             Eager to apply my skills in a professional setting, I’m currently
-            looking<br></br> for internship positions as a Junior Full-Stack or
+            looking for internship positions as a Junior Full-Stack or
             Software Engineer.
           </p>
-          <div className="flex  gap-2 lg:pb-4 lg:gap-4 text-3xl ">
+          <div className="flex  gap-2 pb-4 lg:gap-4 text-3xl  ">
             <a
               href="https://www.linkedin.com/in/mahaboba-islam-priya-67789a1ab/"
               target="_blank"
@@ -134,7 +134,7 @@ const Bannar = () => {
           <a
             href="/public/Mahaboba_Islam_Priya_Resume.pdf"
             download
-            className="btn text-xl bg-gradient-to-r from-sky-400 via-emerald-400 to-green-500 hover:from-green-500 hover:to-sky-400 hover:scale-105 transition-all duration-300"
+            className="btn  text-xl bg-gradient-to-r from-sky-400 via-emerald-400 to-green-500 hover:from-green-500 hover:to-sky-400 hover:scale-105 transition-all duration-300"
           >
             {" "}
             <FaCloudDownloadAlt />

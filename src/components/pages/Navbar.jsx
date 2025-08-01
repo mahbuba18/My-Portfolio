@@ -97,7 +97,7 @@ const Navbar = () => {
   return (
     <div
       className={`fixed navbar px-6 z-50 transition-all duration-300 ease-in-out ${
-        scrolled ? "bg-transparent shadow-lg" : "bg-transparent"
+        scrolled ? "bg-base-300 shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="navbar-start">
@@ -152,7 +152,7 @@ const Navbar = () => {
           offset={-70}
           spy={true}
           onSetActive={() => setActiveSection("contact")}
-          className={`inline-block p-2 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300 ${linkClass(
+          className={`inline-block  px-4 py-2 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300 ${linkClass(
             "contact"
           )}`}
         >

@@ -61,8 +61,8 @@ const Skills = () => {
       className="  py-20 bg-base-200 min-h-screen shadow-lg lg:px-30 md:px-15 sm:px-10"
     >
       <div className="pb-4">
-        <h1 className="flex items-center justify-center text-center text-5xl font-bold bg-gradient-to-r from-sky-500 to-green-400 text-transparent bg-clip-text mb-2 lg:gap-2 ">
-          <GiSkills className="text-5xl text-white" />
+        <h1 className="flex items-center justify-center text-center lg:text-5xl text-3xl font-bold bg-gradient-to-r from-sky-500 to-green-400 text-transparent bg-clip-text mb-2 lg:gap-2 ">
+          <GiSkills className="lg:text-5xl text-3xl text-white" />
           Skills and Experience
         </h1>
       </div>
@@ -78,7 +78,7 @@ const Skills = () => {
          <div className="w-full lg:w-[700px] mx-auto lg:pt-20 ">
 
             {/* Technical Skills */}
-            <div className="border rounded mb-4">
+            <div  className="border rounded mb-4 bg-clip-text transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:-translate-y-1">
               
               <button
                 onClick={() => toggleSection("skills")}
@@ -107,7 +107,7 @@ const Skills = () => {
             </div>
 
             {/* Education */}
-            <div className="border rounded mb-4">
+            <div  className="border rounded mb-4 bg-clip-text transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:-translate-y-1">
               <button
                 onClick={() => toggleSection("education")}
                 className="w-full flex gap-2 justify-between text-left p-4 font-semibold bg-gray-100 text-xl"
@@ -131,7 +131,7 @@ const Skills = () => {
             </div>
 
             {/* Experience */}
-            <div className="border rounded mb-4">
+            <div  className="border rounded mb-4 bg-clip-text transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:-translate-y-1">
               <button
                 onClick={() => toggleSection("experience")}
                 className="w-full flex gap-2 justify-between text-left p-4 font-semibold bg-gray-100 text-xl"

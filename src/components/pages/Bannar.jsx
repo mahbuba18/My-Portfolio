@@ -74,12 +74,12 @@ const Bannar = () => {
                 fontFamily: '"Bitcount Single", system-ui',
                 fontWeight: 700,
               }}
-              className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-emerald-400 to-green-500"
+              className="lg:text-4xl  text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-emerald-400 to-green-500"
             >
               Mahaboba Islam Priya
             </span>
           </h1>
-          <p className="text-2xl pt-2 font-medium  h-8">
+          <p className="lg:text-2xl text-xl p-2 font-medium  ">
             {displayedText}
             <span className="animate-pulse text-green-500">|</span>
           </p>

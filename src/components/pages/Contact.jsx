@@ -28,7 +28,8 @@ const Contact = () => {
         Swal.fire({
           title: "Successfully Sent Message!",
           icon: "success",
-          draggable: true,
+          showConfirmButton: false,
+          timer: 1500,
         });
         e.target.reset();
       })

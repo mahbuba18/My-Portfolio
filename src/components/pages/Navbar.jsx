@@ -6,8 +6,8 @@ const Navbar = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [activeSection, setActiveSection] = useState("home");
 
-  const handleToggle = (e) => {
-    const newTheme = e.target.checked ? "dark" : "light";
+  const handleToggle = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
 
@@ -19,12 +19,9 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
       setScrolled(scrollY > 50);
 
-      if (scrollY < 200) {
-        setActiveSection("home");
-      }
+      if (scrollY < 200) setActiveSection("home");
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -135,14 +132,12 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end flex items-center gap-4">
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="checkbox"
-            onChange={handleToggle}
-            checked={theme === "dark"}
-            className="toggle toggle-md"
-          />
-          <span className="text-lg">{theme === "dark" ? "🌙" : "☀️"}</span>
+        {/* 🌙/☀️ Toggle */}
+        <label
+          className="cursor-pointer text-2xl transition-all duration-300 ease-in-out hover:scale-110"
+          onClick={handleToggle}
+        >
+          {theme === "dark" ? "🌙" : "☀️"}
         </label>
 
         <Link
@@ -152,7 +147,7 @@ const Navbar = () => {
           offset={-70}
           spy={true}
           onSetActive={() => setActiveSection("contact")}
-          className={`inline-block  px-4 py-2 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300 ${linkClass(
+          className={`inline-block lg:px-4 px-2 lg:py-2 py-1 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300 ${linkClass(
             "contact"
           )}`}
         >

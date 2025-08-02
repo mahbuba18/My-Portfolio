@@ -159,7 +159,7 @@ const Navbar = () => {
           </button>
           
           <ul
-            className={`absolute top-full left-0 menu menu-sm bg-black rounded-box z-50 mt-3 w-52 p-2 shadow-lg transition-all duration-200 ${
+            className={`absolute top-full left-0 menu menu-sm text-white bg-black rounded-box z-50 mt-3 w-52 p-2 shadow-lg transition-all duration-200 ${
               dropdownOpen 
                 ? "opacity-100 visible transform translate-y-0" 
                 : "opacity-0 invisible transform -translate-y-2"

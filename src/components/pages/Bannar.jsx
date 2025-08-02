@@ -67,7 +67,7 @@ const Bannar = () => {
         /> */}
         <Lottie className="h-[400px]" animationData={helloLotti}></Lottie>
         <div className="px-10">
-          <h1 className="text-4xl font-bold">
+          <h1 className="lg:text-4xl text-2xl font-bold">
             Hi, I'm{" "}
             <span
               style={{

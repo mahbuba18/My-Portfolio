@@ -1,15 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [activeSection, setActiveSection] = useState("home");
+  const dropdownRef = useRef(null);
 
   const handleToggle = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -20,7 +36,6 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 50);
-
       if (scrollY < 200) setActiveSection("home");
     };
 
@@ -35,15 +50,25 @@ const Navbar = () => {
         : ""
     }`;
 
+  const handleLinkClick = (section, scrollAction) => {
+    setDropdownOpen(false); // Close dropdown when link is clicked
+    setActiveSection(section);
+    document.title = `${section.charAt(0).toUpperCase() + section.slice(1)} | Mahabuba Islam`;
+    if (scrollAction) scrollAction();
+  };
+
+  const toggleDropdown = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDropdownOpen(!dropdownOpen);
+  };
+
   const links = (
     <>
       <li>
         <Link
           to=""
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            setActiveSection("home");
-          }}
+          onClick={() => handleLinkClick("home", () => window.scrollTo({ top: 0, behavior: "smooth" }))}
           className={linkClass("home")}
         >
           Home
@@ -56,7 +81,11 @@ const Navbar = () => {
           duration={500}
           offset={-70}
           spy={true}
-          onSetActive={() => setActiveSection("about")}
+          onSetActive={() => {
+            setActiveSection("about");
+            document.title = "About | Mahabuba Islam";
+          }}
+          onClick={() => handleLinkClick("about")}
           className={linkClass("about")}
         >
           About
@@ -69,7 +98,11 @@ const Navbar = () => {
           duration={500}
           offset={-70}
           spy={true}
-          onSetActive={() => setActiveSection("skills")}
+          onSetActive={() => {
+            setActiveSection("skills");
+            document.title = "Skills | Mahabuba Islam";
+          }}
+          onClick={() => handleLinkClick("skills")}
           className={linkClass("skills")}
         >
           Skills
@@ -82,7 +115,11 @@ const Navbar = () => {
           duration={500}
           offset={-70}
           spy={true}
-          onSetActive={() => setActiveSection("projects")}
+          onSetActive={() => {
+            setActiveSection("projects");
+            document.title = "Projects | Mahabuba Islam";
+          }}
+          onClick={() => handleLinkClick("projects")}
           className={linkClass("projects")}
         >
           Projects
@@ -98,8 +135,13 @@ const Navbar = () => {
       }`}
     >
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <div className="relative" ref={dropdownRef}>
+          <button
+            className="btn border-0 lg:hidden"
+            onClick={toggleDropdown}
+            aria-expanded={dropdownOpen}
+            aria-haspopup="true"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -114,8 +156,15 @@ const Navbar = () => {
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
-          </div>
-          <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
+          </button>
+          
+          <ul
+            className={`absolute top-full left-0 menu menu-sm bg-black rounded-box z-50 mt-3 w-52 p-2 shadow-lg transition-all duration-200 ${
+              dropdownOpen 
+                ? "opacity-100 visible transform translate-y-0" 
+                : "opacity-0 invisible transform -translate-y-2"
+            }`}
+          >
             {links}
           </ul>
         </div>
@@ -126,11 +175,9 @@ const Navbar = () => {
           Mahaboba Islam
         </a>
       </div>
-
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-
       <div className="navbar-end flex items-center gap-4">
         {/* 🌙/☀️ Toggle */}
         <label
@@ -139,15 +186,18 @@ const Navbar = () => {
         >
           {theme === "dark" ? "🌙" : "☀️"}
         </label>
-
         <Link
           to="contact"
           smooth={true}
           duration={500}
           offset={-70}
           spy={true}
-          onSetActive={() => setActiveSection("contact")}
-          className={`inline-block lg:px-4 px-2 lg:py-2 py-1 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300 ${linkClass(
+          onSetActive={() => {
+            setActiveSection("contact");
+            document.title = "Contact | Mahabuba Islam";
+          }}
+          onClick={() => handleLinkClick("contact")}
+          className={`inline-block lg:px-4 px-2 lg:py-2 py-1 rounded-lg border-2 border-emerald-500 bg-gradient-to-r from-sky-600 to-green-500 hover:from-orange-400 hover:to-blue-600 text-transparent bg-clip-text hover:scale-105 transition-all duration-300 cursor-pointer ${linkClass(
             "contact"
           )}`}
         >

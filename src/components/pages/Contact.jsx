@@ -44,7 +44,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="hero bg-base-200 min-h-screen py-20">
+    <div id="contact" className="hero bg-base-200 min-h-screen p-20">
       <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl">
         {/* Contact Form */}
         <div className="card bg-base-100 w-full max-w-xl shadow-2xl">
